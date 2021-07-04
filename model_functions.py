@@ -9,20 +9,6 @@ def load_data():
     x_test = x_test / 255.0
     return x_train, y_train, x_test, y_test
 
-def encoder_io():
-    # Input: (28,28,1) -> Flatten (784) -> Ouput: (64)
-    encoder_input = keras.Input(shape=(28,28,1))
-    x = keras.layers.Flatten()(encoder_input)
-    encoder_output = keras.layers.Dense(64, activation="relu")(x)
-    return encoder_input, encoder_output
-
-def decoder_io():
-    # Dense: (64) -> Dense: (784)
-    _, encoder_output = encoder_io()
-    decoder_input = keras.layers.Dense(784, activation="relu")(encoder_output)
-    decoder_output = keras.layers.Reshape((28,28,1))(decoder_input)
-    return decoder_input, decoder_output
-
 def build_model(summary:bool=False, test:bool=False):
     alpha = 0.05
     x_train,_,x_test,_ = load_data()
@@ -66,7 +52,7 @@ def test_model(model) -> float:
 
 
 if __name__ == '__main__':
-    build_model(test=True)
+    build_model(summary=True, test=True)
 
 
 """ Compression example and stored values as real and image """

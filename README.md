@@ -1,9 +1,10 @@
 # ML Autoencoder MNIST Digits
 ## Description 
 This project features an autoencoder model trained to encode, compress, and decode hand-written digits.
-There are two files, model_functions.py which contains the functions and structure of the model. Secondly, there is
-interactive.py which provides a small GUI screen to draw a digit 0-9. The user's drawing can be inputted into the 
-trained model by pressing a key in which the neural network outputs its guess.
+There are two files, model_functions.py which contains the functions and structure of the model.  
+Secondly, there is interactive.py which provides a small GUI screen to draw or load a random digit between 0 and 9. 
+The user's drawing can be inputted into the trained model by pressing a key in which the neural network outputs
+its auto-encoded version.
 
 ## Installation
 * Pip install h5py (built with 3.1.0)
@@ -19,16 +20,30 @@ If you run model_functions.py, it will build and train a new model which will ov
 and weights.
 The newly trained model will be evaluated, and it's accuracy outputted.
 
-Upon running interactive.py, a window will pop up. FINISH WRITING THIS... 
+![Image of interactive.py](/images/Capture.PNG)
 
-## Neural Network Details
-FINISH WRITING THIS... 
+Upon running interactive.py, a window will pop up. Pressing D passes the input to the Auto Encoder (AE), which
+populates the right group of pixels with output from the AE. Pressing T loads a random image into the input section.
+Pressing C clears both the input and output sections. 
+
+## Autoencoder Details
+(InputLayer) Input Shape: (28, 28, 1)  
+(Flatten) 784 Units  
+(Dense) 256 Units  
+(LeakyReLU) Activation Layer  
+(Dense) 128 Units  
+(LeakyReLU) Activation Layer  
+(Dense) 256 Units  
+(LeakyReLU) Activation Layer  
+(Dense) 784 Units  
+(LeakyReLU) Activation Layer  
+(Output Layer) Output Shape: (28, 28, 1) 
   
-Testing accuracy: ?
+Testing accuracy: ~81%
 
 ## Credits
 * Author: Lee Taylor
 
 ## Note
 This is my first autoencoder machine learning project, inspired by the book,
-Generative Deep Learning by David Foster. As well as tutorial by sentdex on YouTube.
+Generative Deep Learning by David Foster. Project also inspired by YouTube tutorial by sentdex.
